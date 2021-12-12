@@ -1,2 +1,3 @@
 
-$(".friend").addClass("btn-success disabled").removeClass("btn-primary").html("Friend").attr("href","#")
+$(".friend").addClass("btn-success disabled").removeClass("btn-primary").html("Friend").attr("href","#");
+$(".frnd-list").append(`<%= link_to @frnd.name, friend_path(@frnd.id), class:"friend-name"%>`)

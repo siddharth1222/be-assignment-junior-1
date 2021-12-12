@@ -19,7 +19,12 @@
 .btn {
   color: #fff !important;
 }
-.main-area {
-  /* height: 85vh;
-  overflow: scroll; */
+.user-info > a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+}
+.user-info > a:hover {
+  color: blue;
+  background-color: transparent;
 }

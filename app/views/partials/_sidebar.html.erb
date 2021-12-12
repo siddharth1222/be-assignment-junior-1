@@ -3,7 +3,7 @@
       <p class="friends-list-header">Home</p>
       <%= link_to "Dashboard", root_path, class: "friend-name" %>
     </div>
-    <div class="friends-list">
+    <div class="friends-list frnd-list">
       <p class="friends-list-header">FRIENDS</p>
       <%= ('<div class="text-muted text-center">No Friends Yet</div>').html_safe if usr.friends.empty?%>
       <%usr.friends.each do |friend|%>

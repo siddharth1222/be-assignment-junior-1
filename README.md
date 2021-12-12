@@ -1,7 +1,7 @@
 # Rails Assignment - Splitwise
 
 ## Setup
-- Fork the repository. 
+
 - Clone the repository in your local machine.
 - Run `rails db:setup`, this will also seed data in the `User` model
 - Run `rails s` to start the server and `rails c` for rails console
@@ -13,24 +13,8 @@
 - Git (configured with your Github account)
 - Node - 12.13.1
 
+## how to use
 
-## Things available in the repo
-- Webpacker configured and following packages are added and working.
-  - Jquery
-  - Bootstrap
-  - Jgrowl
-- Devise installed and `User` model is added. Sign in and Sign up pages have been setup.
-- Routes and layouts for following page have been added.
-  - Dashboard - This will be the root page.
-  - Friend page - `/people/:id`
-
-
-## Submission
-- Make the improvements as specified in your technical assignment task.
-- Commit all changes to the fork you created
-- Deploy your app to Heroku
-- Send us the link of the dpeloyed application and your fork.
-
-
-## Contact us
-If you need any help regarding this assignment or want to join [Commutatus](https://www.commutatus.com/), drop us an email at work@commutatus.com 
+- Register yourself and your friend in the app.
+- Search your friend by name or email address and add them
+- Create Expanses.

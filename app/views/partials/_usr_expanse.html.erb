@@ -6,7 +6,7 @@
           <div class="user-detail">
             <img alt="profile" class="user-img" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
             <div class="user-info">
-              <p><%= minus[:user].name%></p>
+            <%= link_to minus[:user].name , expanse_path(minus[:expnase_id])%>
               <p class="text-danger">owes you <span class="minus_pay"><%= minus[:payment]%></span></p>
             </div>
           </div>
@@ -19,7 +19,8 @@
           <div class="user-detail">
             <img alt="profile" class="user-img" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
             <div class="user-info">
-              <p><%= plus[:user].name%></p>
+              
+              <%= link_to plus[:user].name , expanse_path(plus[:expnase_id])%>
               <p class="text-success">owes you <span class="plus_pay"><%= plus[:payment]%></span></p>
             </div>
           </div>

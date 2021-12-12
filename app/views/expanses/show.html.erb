@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @expanse.title %>
-</p>
-<p>
-  <strong>Amount:</strong>
-  <%= @expanse.amount %>
-</p>
-<p>
-  <strong>Type:</strong>
-  <%= @expanse.type %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @expanse.status %>
-</p>
-<p>
-  <strong>Created by:</strong>
-  <%= @expanse.created_by_id %>
-</p>
-<%= link_to 'Edit', edit_expanse_path(@expanse) %>
-| 
-<%= link_to 'Back', expanses_path %>
+<div class="dashboard-wrapper">
+  <%= render partial: './partials/sidebar', locals: {usr: @user} %>
+  <div class="main-area">
+    <div class="top-bar justify-content-between">
+      <h1 class="top-bar-title">Expanse detail</h1>
+      <%= link_to "Back", root_path, class:"btn btn-secondary"%>
+    </div>
+    <div class="dashboard-balances">
+    <div class="container px-4">
+      <h3 class="text-center text-capitalize m-5"><%=@expanse.title%></h3>
+      <%#= render partial: './partials/usr_expanse', locals: {usr_expanses: @user.expanse_data} %>
+      <h4>Paid By:</h4>
+      <%= @expanse.paid_by.name%>
+      <h4>Shared By:</h4>
+      <ul class="list-group">
+      <% @expanse.expanse_payments.each do |expanse|%>
+       <li class="list-group-item"><%= expanse.user.name%></li>
+      <%end%>
+      </ul>
+      <h4>Amount:</h4>
+      <h3><%="₹"+@expanse.amount.to_s%></h3>
+      <h4>Expanse Created By:</h4>
+      <%= @expanse.user.name%>
+      <h4> Created On: </h4>
+      <%= show_date_time(@expanse.created_at)%>
+    </div>
+    </div>
+  </div>
+</div>
