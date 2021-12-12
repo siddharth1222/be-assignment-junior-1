@@ -1,0 +1,30 @@
+<aside class="side-bar-area">
+<div class="friends-list">
+      <p class="friends-list-header">Home</p>
+      <%= link_to "Dashboard", root_path, class: "friend-name" %>
+    </div>
+    <div class="friends-list">
+      <p class="friends-list-header">FRIENDS</p>
+      <%= ('<div class="text-muted text-center">No Friends Yet</div>').html_safe if usr.friends.empty?%>
+      <%usr.friends.each do |friend|%>
+      <%= link_to friend.name, friend_path(friend.id), class:"friend-name"%>
+      <%end%>
+    </div>
+    <div class="friends-list">
+      <p class="friends-list-header">Search Friends</p>
+      <div class="input-group">
+        <input type="text" id="search_friend" class="search form-control" name="q" value="<%=params[:q]%>" placeholder="Search friends" autofocus />
+        <a class="btn btn-primary search-btn" href="#"><i class="fa fa-search opacity-5"></i></a>
+      </div>
+      <%# <a class="btn btn-sm btn-primary mt-3">Add Friends</a> %>
+    </div>
+  </aside>
+  <% content_for :footer_js do%>
+<script>
+$(".search").on('input', function(){
+  var sear = $(this).val()
+  const url = `/search_users?q=${sear}`
+  $(".search-btn").attr('href',url)
+})
+</script>
+<%end%>

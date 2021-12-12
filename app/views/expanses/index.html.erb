@@ -1,0 +1,43 @@
+<h1>Listing expanses
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Created by</th>
+      <th>
+      </th>
+      <th>
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expanses.each do |expanse|
+ %>
+    <tr>
+      <td><%= expanse.title %>
+      </td>
+      <td><%= expanse.amount %>
+      </td>
+      <td><%= expanse.type %>
+      </td>
+      <td><%= expanse.status %>
+      </td>
+      <td><%= expanse.created_by_id %>
+      </td>
+      <td><%= link_to 'Show', expanse %>
+      </td>
+      <td><%= link_to 'Edit', edit_expanse_path(expanse) %>
+      </td>
+      <td><%= link_to 'Destroy', expanse, data: { confirm: 'Are you sure?' }, method: :delete %>
+      </td>
+    </tr>
+  <% end %></tbody>
+</table>
+<br />
+<%= link_to 'New Expanse', new_expanse_path %>

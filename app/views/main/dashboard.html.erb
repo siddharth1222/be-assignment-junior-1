@@ -1,0 +1,57 @@
+<div class="dashboard-wrapper">
+  <%= render partial: './partials/sidebar', locals: {usr: @user} %>
+  <div class="main-area">
+    <div class="top-bar">
+      <h1 class="top-bar-title">Dashboard</h1>
+      <div class="top-bar-actions">
+        <%# <button class="btn btn-primary" data-bs-target="#expenseModal" data-bs-toggle="modal" type="button"> Add an expense</button> %>
+        <%= link_to "Add new Expanse", new_expanse_path, remote: true, class:'btn btn-primary'%>
+        <button class="btn btn-secondary" type="button"> Settle up
+        </button>
+      </div>
+    </div>
+    <div class="dashboard-balances">
+      <div class="balances-bar">
+        <div class="balance-block text-dark">
+          <p>total balance</p>
+          <p class="total_bal ">0.00</p>
+        </div>
+        <div class="balance-block text-danger ">
+          <p>you owe</p>
+          <p class="total_minus ">0.00</p>
+        </div>
+        <div class="balance-block text-success">
+          <p>you are owed</p>
+          <p class="total_plus ">0.00</p>
+        </div>
+      </div>
+      <%= render partial: './partials/usr_expanse', locals: {usr_expanses: @user.expanse_data} %>
+      
+    </div>
+  </div>
+</div>
+<div class="add_expanse"></div>
+<% content_for :footer_js do%>
+<script>
+$(".search").on('input', function(){
+  var sear = $(this).val()
+  const url = `/search_users?q=${sear}`
+  $(".search-btn").attr('href',url)
+})
+let total_plus = 0
+let total_minus = 0
+let plus = $(".plus_pay")
+let minus = $(".minus_pay")
+for (let i = 0; i < plus.length; i++) {
+  total_plus += parseInt(plus[i].textContent)
+}
+for (let i = 0; i < minus.length; i++) {
+  total_minus += parseInt(minus[i].textContent)
+}
+const net = total_plus - total_minus
+$(".total_plus").html("₹"+total_plus)
+$(".total_minus").html("₹"+total_minus)
+$(".total_bal").html("₹"+net)
+console.log(total_plus)
+</script>
+<%end%>

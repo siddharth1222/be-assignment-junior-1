@@ -1,0 +1,5 @@
+<% if (@expanse.errors.present?) %>
+	$('.error_container_inquiry').html('<%= j render 'layouts/message/error', resource: @expanse %>');
+<% else %>
+		window.location.reload();
+<% end %>

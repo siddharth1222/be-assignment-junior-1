@@ -1,0 +1,63 @@
+<div class="dashboard-wrapper">
+  <%= render partial: './partials/sidebar', locals: {usr: @user} %>
+  <div class="main-area">
+    <div class="top-bar">
+      <h1 class="top-bar-title">Users</h1>
+      <div class="top-bar-actions">
+      
+        <%# <button class="btn btn-primary" data-bs-target="#expenseModal" data-bs-toggle="modal" type="button"> Add an expense</button> %>
+        <%#= link_to "Add new Expanse", new_expanse_path, remote: true%>
+        <%# <button class="btn btn-secondary" type="button"> <%=@res.name%>
+        </button> %>
+      </div>
+    </div>
+    <div class="dashboard-balances">
+      <div class="p-5">
+        <ul class="list-group">
+        <% @res&.each do |detail|%>
+  <li class="list-group-item">
+  <%=detail.name%></li>
+  <%end%>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="add_expanse"></div>
+<% content_for :footer_js do%>
+<script>
+$(".search-btn").click(()=>{
+var search = $(".search").val()
+$.ajax({
+            type: "POST",
+            url: `<%=search_users_path%>`,
+            data: {q: search},
+            success: function(data) {
+               console.log(data)
+            }
+        })
+})
+</script>
+<%end%>
+<%# <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> %>
+<%# <div aria-hidden="true" aria-labelledby="expenseModalLabel" class="modal fade" id="expenseModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="expenseModalLabel">Add an expense</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+        </button></div>
+      <div class="modal-body">
+        Fields to be added
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"> Close</button>
+        <button class="btn btn-primary" type="button"> Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> %>

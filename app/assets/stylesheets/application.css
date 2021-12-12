@@ -13,5 +13,13 @@
  *= require_tree .
  *= require bootstrap/dist/css/bootstrap
  *= require 'jgrowl'
+ *= require select2/dist/css/select2.min.css
  *= require_self
  */
+.btn {
+  color: #fff !important;
+}
+.main-area {
+  /* height: 85vh;
+  overflow: scroll; */
+}

@@ -1,0 +1,28 @@
+<div class="dashboard-detail">
+        <div class="detail-block">
+          <h2 class="detail-title">you owe</h2>
+          <%= ('<div class="text-muted text-center"> You do not owe anything</div>').html_safe if usr_expanses[:you_owe].empty?%>
+          <% usr_expanses[:you_owe].each do |minus|%>
+          <div class="user-detail">
+            <img alt="profile" class="user-img" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
+            <div class="user-info">
+              <p><%= minus[:user].name%></p>
+              <p class="text-danger">owes you <span class="minus_pay"><%= minus[:payment]%></span></p>
+            </div>
+          </div>
+          <%end%>
+        </div>
+        <div class="detail-block">
+          <h2 class="detail-title">you are owed</h2>
+          <%= ('<div class="text-muted text-center">You are not owed anything.</div>').html_safe if usr_expanses[:you_owed].empty?%>
+          <% usr_expanses[:you_owed].each do |plus|%>
+          <div class="user-detail">
+            <img alt="profile" class="user-img" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
+            <div class="user-info">
+              <p><%= plus[:user].name%></p>
+              <p class="text-success">owes you <span class="plus_pay"><%= plus[:payment]%></span></p>
+            </div>
+          </div>
+          <%end%>
+        </div>
+      </div>
