@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_12_05_132334) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "expanse_payments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "expanse_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "expanse_id", null: false
     t.bigint "paid_by_id", null: false
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
